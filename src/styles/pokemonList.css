@@ -1,0 +1,23 @@
+.pokemon-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.pokemon-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}

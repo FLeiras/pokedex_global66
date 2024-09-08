@@ -1,0 +1,40 @@
+.pokemonFav-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.pokemonFav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  list-style: none;
+}
+
+.pokemonFav-card {
+  flex: 1 1 calc(33.33% - 16px);
+  max-width: 200px;
+}
+
+.search-bar-container {
+  margin-top: 20px;
+}
+
+.search-bar-container .searchBar-Fav .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-bar-container .searchBar-Fav input {
+  padding-left: 40px;
+  height: 50px;
+}

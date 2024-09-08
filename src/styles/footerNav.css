@@ -1,0 +1,50 @@
+.footer-nav {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 70px;
+  padding: 10px 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  width: 275px;
+  height: 44px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.all-btn {
+  color: white;
+}
+
+.favorites-btn {
+  color: #555;
+}
+
+.nav-btn:hover {
+  opacity: 0.8;
+}
+
+.nav-btn.active {
+  background-color: #ff3b30;
+}
+
+.nav-btn.inactive {
+  background-color: #d1d1d1;
+  color: #555;
+  border: none;
+}
