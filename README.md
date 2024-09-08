@@ -41,3 +41,5 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
    ```
 
 Listo!! Ya podés navegar por el mundo Pokémon 👏
+
+Me gustaría agregar, en principio, muchas gracias por la oportunidad, dicho esto les comento el porqué de mi elección dentro del código que verán. A pesar de ser una solución simple, opte por el uso de composables function de Vue3 para que mis componentes no tengan una dependencia sobre el store de mi app, esto es, si el día de mañana deciden cambiar Pinia por 'Manzana' 😂, o simplemente, el equipo, realizar un downgrade a VueX, esto solo afectaría a esos composables, ya que son los únicos que tienen comunicación y contacto con mi store, así los componentes no sentirían el cambio y por ende el costo técnico será menor. De vuelta, gracias por la oportunidad y espero que les guste mi trabajo.
