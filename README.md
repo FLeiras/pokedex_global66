@@ -22,7 +22,7 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. **Clona el repositorio**:
 
    ```bash
-   git clone https://github.com/FLeiras/
+   git clone https://github.com/FLeiras/pokedex_global66.git
    ```
 
 2. **Navegar al directorio del proyecto**
