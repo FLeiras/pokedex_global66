@@ -5,6 +5,7 @@ import 'package:pokedex_global66/presentation/providers/get_pokemon_list_provide
 import 'package:pokedex_global66/presentation/providers/search_query_provider.dart';
 import 'package:pokedex_global66/presentation/providers/type_filter_provider.dart';
 import 'package:pokedex_global66/presentation/widgets/filter_bottom_sheet.dart';
+import 'package:pokedex_global66/presentation/widgets/not_found_page.dart';
 import 'package:pokedex_global66/presentation/widgets/poekedex_loading.dart';
 
 import 'package:pokedex_global66/presentation/widgets/pokemon_card.dart';
@@ -20,13 +21,21 @@ class PokemonListPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pokemonAsync = ref.watch(pokemonListProvider);
+    // final pokemonAsync = ref.watch(pokemonListProvider);
     final pokemons = ref.watch(filteredPokemonProvider);
 
     return Scaffold(
       body: pokemonAsync.when(
         loading: () => const PokedexLoading(),
         error: (e, _) => Center(
-          child: Text('Error: $e'),
+          child: NotFoundPage(
+            title: 'Algo salió mal...',
+            message:
+                'No pudimos cargar la información en este\n momento. Verifica tu conexión o intenta\n nuevamente más tarde.',
+            imagePath: 'assets/images/no_found.png',
+            showRetryButton: true,
+            onRetry: () => ref.refresh(pokemonListProvider),
+          ),
         ),
         data: (_) {
           return _PokemonListContent(

@@ -58,7 +58,7 @@ class FilterBottomSheet extends ConsumerWidget {
               "Aplicar",
               style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
+                // fontFamily: 'Poppins',
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -78,7 +78,7 @@ class FilterBottomSheet extends ConsumerWidget {
                 "Cancelar",
                 style: TextStyle(
                   color: Colors.black,
-                  fontFamily: 'Poppins',
+                  // fontFamily: 'Poppins',
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

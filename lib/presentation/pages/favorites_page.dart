@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex_global66/presentation/pages/home_page.dart';
-import 'package:pokedex_global66/presentation/pages/no_favorites_page.dart';
 import 'package:pokedex_global66/presentation/pages/pokemon_detail_page.dart';
+import 'package:pokedex_global66/presentation/widgets/not_found_page.dart';
 
 import '../widgets/pokemon_card.dart';
 import '../providers/favorites_provider.dart';
@@ -22,7 +22,13 @@ class FavoritesPage extends ConsumerWidget {
       appBar: hasFavorites
           ? AppBar(
               centerTitle: true,
-              title: const Text('Favoritos'),
+              title: const Text(
+                'Favoritos',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                ),
+              ),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
@@ -44,17 +50,23 @@ class FavoritesPage extends ConsumerWidget {
               pokemons.where((p) => favorites.contains(p.name)).toList();
 
           if (!hasFavorites) {
-            return const NoFavoritesPage();
+            return const NotFoundPage(
+              title: 'No has marcado ningún\n Pokémon como favorito',
+              message:
+                  'Haz clic en el ícono de corazón de tus\n Pokémon favoritos y aparecerán aquí.',
+              imagePath: 'assets/images/no_found.png',
+              showRetryButton: false,
+            );
           }
 
           return ListView.builder(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(5),
             itemCount: favoritePokemons.length,
             itemBuilder: (context, index) {
               final pokemon = favoritePokemons[index];
 
               return Padding(
-                padding: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsets.only(bottom: 5),
                 child: Dismissible(
                   key: Key(pokemon.name),
                   direction: DismissDirection.endToStart,
@@ -77,25 +89,28 @@ class FavoritesPage extends ConsumerWidget {
                       size: 28,
                     ),
                   ),
-                  child: PokemonCard(
-                    pokemon: pokemon,
-                    types: pokemon.types,
-                    isFavorite: true,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => PokemonDetailPage(
-                            pokemon: pokemon,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: PokemonCard(
+                      pokemon: pokemon,
+                      types: pokemon.types,
+                      isFavorite: true,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PokemonDetailPage(
+                              pokemon: pokemon,
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                    onFavoriteTap: () {
-                      ref
-                          .read(favoritesProvider.notifier)
-                          .toggleFavorite(pokemon.name);
-                    },
+                        );
+                      },
+                      onFavoriteTap: () {
+                        ref
+                            .read(favoritesProvider.notifier)
+                            .toggleFavorite(pokemon.name);
+                      },
+                    ),
                   ),
                 ),
               );

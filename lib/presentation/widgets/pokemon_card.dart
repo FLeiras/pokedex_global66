@@ -42,9 +42,9 @@ class PokemonCard extends StatelessWidget {
               child: Container(
                 width: 120,
                 height: 130,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF8BC34A),
-                  borderRadius: const BorderRadius.all(
+                decoration: const BoxDecoration(
+                  color: Color(0xFF8BC34A),
+                  borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
                 ),
@@ -71,7 +71,7 @@ class PokemonCard extends StatelessWidget {
                           pokemon.name[0].toUpperCase() +
                               pokemon.name.substring(1),
                           style: const TextStyle(
-                            fontFamily: 'Poppins',
+                            // fontFamily: 'Poppins',
                             fontSize: 21,
                             fontWeight: FontWeight.w600,
                             height: 1.0, // line-height 100%

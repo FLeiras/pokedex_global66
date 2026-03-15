@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex_global66/features/pokemon/domain/entities/pokemon_detail.dart';
+import 'package:pokedex_global66/presentation/widgets/not_found_page.dart';
 
 import '../providers/pokemon_detail_provider.dart';
 import 'package:pokedex_global66/presentation/widgets/pokemon_type_chip.dart';
@@ -15,7 +16,7 @@ class PokemonDetailPage extends ConsumerWidget {
     required this.pokemon,
   });
 
-  Widget _PokemonHeader({
+  Widget _pokemonHeader({
     required BuildContext context,
     required PokemonDetail pokemon,
     required bool isFavorite,
@@ -37,8 +38,6 @@ class PokemonDetailPage extends ConsumerWidget {
               ),
             ),
           ),
-
-          /// HOJA GRANDE
           Positioned(
             top: 40,
             child: Opacity(
@@ -50,8 +49,6 @@ class PokemonDetailPage extends ConsumerWidget {
               ),
             ),
           ),
-
-          /// POKEMON GRANDE (delante de la hoja)
           Positioned(
             bottom: -10,
             child: SizedBox(
@@ -63,8 +60,6 @@ class PokemonDetailPage extends ConsumerWidget {
               ),
             ),
           ),
-
-          /// BOTON BACK
           Positioned(
             top: 40,
             left: 16,
@@ -73,8 +68,6 @@ class PokemonDetailPage extends ConsumerWidget {
               onPressed: () => Navigator.pop(context),
             ),
           ),
-
-          /// FAVORITO
           Positioned(
             top: 40,
             right: 16,
@@ -103,7 +96,13 @@ class PokemonDetailPage extends ConsumerWidget {
           child: CircularProgressIndicator(),
         ),
         error: (error, _) => Center(
-          child: Text('Error: $error'),
+          child: NotFoundPage(
+            title: 'No se pudo cargar el Pokémon',
+            message: 'Intenta recargar la página para ver los detalles.',
+            imagePath: 'assets/images/error.png',
+            showRetryButton: true,
+            onRetry: () => ref.refresh(pokemonDetailProvider(pokemon.name)),
+          ),
         ),
         data: (pokemon) {
           return SingleChildScrollView(
@@ -112,7 +111,7 @@ class PokemonDetailPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                  child: _PokemonHeader(
+                  child: _pokemonHeader(
                     context: context,
                     pokemon: pokemon,
                     isFavorite: isFavorite,
@@ -125,7 +124,7 @@ class PokemonDetailPage extends ConsumerWidget {
                 Text(
                   pokemon.name.toUpperCase(),
                   style: const TextStyle(
-                    fontFamily: 'Poppins',
+                    // fontFamily: 'Poppins',
                     fontSize: 28,
                     fontWeight: FontWeight.w600,
                   ),
@@ -155,6 +154,8 @@ class PokemonDetailPage extends ConsumerWidget {
                     fontSize: 14,
                     height: 1.5,
                     color: Colors.black87,
+                    // fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 24),

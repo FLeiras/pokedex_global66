@@ -17,7 +17,7 @@ class PokemonBottomNav extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: SvgNavIcon('assets/icons/house.svg', color: Colors.grey),
           activeIcon: SvgNavIcon('assets/icons/house.svg', color: Colors.blue),

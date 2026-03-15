@@ -30,12 +30,10 @@ class _PokedexLoadingState extends State<PokedexLoading>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RotationTransition(
-        turns: controller,
-        child: Image.asset(
-          'assets/images/Loading.gif',
-          width: 120,
-        ),
+      child: Image.asset(
+        'assets/images/Loading.gif',
+        width: double.infinity,
+        height: 200,
       ),
     );
   }

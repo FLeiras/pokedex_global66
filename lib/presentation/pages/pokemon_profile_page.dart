@@ -6,6 +6,6 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SoonView();
+    return const SoonView();
   }
 }

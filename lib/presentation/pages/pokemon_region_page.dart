@@ -6,6 +6,6 @@ class RegionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SoonView();
+    return const SoonView();
   }
 }

@@ -11,7 +11,7 @@ class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
 
   @override
   Future<List<PokemonModel>> getPokemonList() async {
-    final response = await dio.get('/pokemon?limit=20');
+    final response = await dio.get('/pokemon?limit=120');
 
     final results = response.data['results'] as List;
 

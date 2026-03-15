@@ -82,7 +82,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
-                    fontFamily: 'Poppins',
+                    // fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -134,7 +134,7 @@ class _OnboardingItem extends StatelessWidget {
             style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
-              fontFamily: 'Poppins',
+              // fontFamily: 'Poppins',
             ),
           ),
           const SizedBox(height: 8),
@@ -144,6 +144,8 @@ class _OnboardingItem extends StatelessWidget {
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 16,
+              fontWeight: FontWeight.bold,
+              // fontFamily: 'Poppins',
             ),
           ),
         ],

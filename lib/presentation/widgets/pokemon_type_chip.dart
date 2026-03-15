@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+
 import '../utils/pokemon_type_ui.dart';
 
 class PokemonTypeChip extends StatelessWidget {
@@ -24,20 +25,18 @@ class PokemonTypeChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 22,
-            height: 22,
+            width: 26,
+            height: 26,
             decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
             ),
             child: Padding(
               padding: const EdgeInsets.all(4),
-              child: SvgPicture.asset(
+              child: Image.asset(
+                width: 24,
+                height: 24,
                 PokemonTypeUI.icon(type),
-                colorFilter: ColorFilter.mode(
-                  color,
-                  BlendMode.srcIn,
-                ),
               ),
             ),
           ),
@@ -45,7 +44,7 @@ class PokemonTypeChip extends StatelessWidget {
           Text(
             PokemonTypeUI.label(type),
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              // fontFamily: 'Poppins',
               fontSize: 11,
               fontWeight: FontWeight.w500,
               height: 1.0,

@@ -20,7 +20,6 @@ class NoFavoritesPage extends StatelessWidget {
               "No has marcado ningún\nPokémon como favorito",
               style: TextStyle(
                 fontSize: 22,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
                 height: 1.4,
               ),
@@ -31,7 +30,6 @@ class NoFavoritesPage extends StatelessWidget {
               "Haz clic en el ícono de corazón de tus Pokémon favoritos y aparecerán aquí.",
               style: TextStyle(
                 fontSize: 16,
-                fontFamily: 'Poppins',
                 color: Colors.grey,
                 height: 1.5,
               ),

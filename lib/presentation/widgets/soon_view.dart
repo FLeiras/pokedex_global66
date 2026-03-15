@@ -19,7 +19,7 @@ class SoonView extends StatelessWidget {
               "¡Muy proto disponible!",
               style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Poppins',
+                // fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
                 height: 1.4,
               ),
@@ -30,7 +30,7 @@ class SoonView extends StatelessWidget {
               "Estamos trabajando para traerte esta\nsección. Vuelve más adelante para descubrir\ntodas las novedades.",
               style: TextStyle(
                 fontSize: 16,
-                fontFamily: 'Poppins',
+                // fontFamily: 'Poppins',
                 color: Colors.grey,
                 height: 1.5,
               ),

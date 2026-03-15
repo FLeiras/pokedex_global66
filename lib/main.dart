@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
       title: 'Pokédex Global66',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red,
+          seedColor: Colors.blueAccent,
         ),
         useMaterial3: true,
       ),
