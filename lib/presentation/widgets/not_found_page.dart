@@ -22,7 +22,7 @@ class NotFoundPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -30,7 +30,6 @@ class NotFoundPage extends StatelessWidget {
               imagePath,
               width: 220,
             ),
-            const SizedBox(height: 32),
             Text(
               title,
               style: const TextStyle(
@@ -40,7 +39,6 @@ class NotFoundPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
             Text(
               message,
               style: const TextStyle(
@@ -50,7 +48,6 @@ class NotFoundPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
             if (secondaryMessage != null)
               Text(
                 secondaryMessage!,
@@ -65,12 +62,17 @@ class NotFoundPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: onRetry,
                 style: ElevatedButton.styleFrom(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
+                    backgroundColor: Colors.blueAccent),
                 child: const Text(
                   'Reintentar',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
           ],

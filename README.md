@@ -7,6 +7,7 @@ Aplicación móvil desarrollada con **Flutter** que consume la **PokéAPI** para
 ## Características
 
 - **Listado de Pokémon** obtenido desde la API
+
 - **Detalle del Pokémon** con:
   - Imagen oficial
   - Tipos
@@ -149,6 +150,10 @@ Incluye:
 - Agregar o quitar favoritos
 
 - Eliminar con gesto swipe
+
+### Nota
+
+La solucion esta desarrollada para que en el primer inicio falle la carga del listado y asi poder mostrar el caso de uso y la vista de Error. Al dar click en el boton "Reintentar" todo funciona con normalidad.
 
 ### Autor
 

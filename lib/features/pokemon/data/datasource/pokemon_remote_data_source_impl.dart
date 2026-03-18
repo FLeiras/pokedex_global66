@@ -6,11 +6,19 @@ import 'package:pokedex_global66/features/pokemon/data/models/pokemon_species_mo
 
 class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
   final Dio dio;
+  static bool forceErrorOnce = true;
 
   PokemonRemoteDataSourceImpl(this.dio);
 
   @override
   Future<List<PokemonModel>> getPokemonList() async {
+    if (forceErrorOnce) {
+      forceErrorOnce = false;
+
+      await Future.delayed(const Duration(seconds: 1));
+      throw Exception('Error simulado para testing');
+    }
+
     final response = await dio.get('/pokemon?limit=120');
 
     final results = response.data['results'] as List;
