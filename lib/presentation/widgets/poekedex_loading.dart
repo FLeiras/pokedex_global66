@@ -33,7 +33,7 @@ class _PokedexLoadingState extends State<PokedexLoading>
       child: Image.asset(
         'assets/images/Loading.gif',
         width: double.infinity,
-        height: 200,
+        height: 100,
       ),
     );
   }

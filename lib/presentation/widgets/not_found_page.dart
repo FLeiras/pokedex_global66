@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NotFoundPage extends StatelessWidget {
+class NotFoundPage extends StatefulWidget {
   final String title;
   final String message;
   final String? secondaryMessage;
@@ -19,6 +19,19 @@ class NotFoundPage extends StatelessWidget {
   });
 
   @override
+  State<NotFoundPage> createState() => _NotFoundPageState();
+}
+
+class _NotFoundPageState extends State<NotFoundPage> {
+  bool isRetrying = false;
+
+  void handleRetry() async {
+    setState(() => isRetrying = true);
+
+    widget.onRetry?.call();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
@@ -27,11 +40,11 @@ class NotFoundPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              imagePath,
+              widget.imagePath,
               width: 220,
             ),
             Text(
-              title,
+              widget.title,
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -40,7 +53,7 @@ class NotFoundPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Text(
-              message,
+              widget.message,
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -48,9 +61,9 @@ class NotFoundPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            if (secondaryMessage != null)
+            if (widget.secondaryMessage != null)
               Text(
-                secondaryMessage!,
+                widget.secondaryMessage!,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -58,22 +71,28 @@ class NotFoundPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-            if (showRetryButton)
+            if (widget.showRetryButton)
               ElevatedButton(
-                onPressed: onRetry,
                 style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 12,
-                    ),
-                    backgroundColor: Colors.blueAccent),
-                child: const Text(
-                  'Reintentar',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
+                  backgroundColor: Colors.blueAccent,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                 ),
+                onPressed: isRetrying ? null : handleRetry,
+                child: isRetrying
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Text(
+                        'Reintentar',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
               ),
           ],
         ),
