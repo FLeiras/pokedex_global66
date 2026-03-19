@@ -90,7 +90,55 @@ flutter pub get
 Ejecutar la aplicación:
 
 ```bash
+flutter run -d Chrome
+```
+
+## Ejecutar en dispositivo físico (Android)
+
+Para correr la app en un celular Android:
+
+1. Activar opciones de desarrollador
+
+En tu teléfono:
+
+Ir a Ajustes → Acerca del teléfono
+
+Tocar varias veces en “Número de compilación” hasta habilitar modo desarrollador
+
+2. Habilitar depuración USB
+
+Ir a Ajustes → Opciones de desarrollador
+
+Activar:
+
+✅ Depuración USB
+
+✅ Instalar vía USB (en dispositivos Xiaomi/MIUI)
+
+3. Conectar el dispositivo
+
+Conectar el celular por USB y verificar que Flutter lo detecte:
+
+```bash
+flutter devices
+```
+
+Deberías ver algo como:
+
+```bash
+<device_id> • android-arm64 • Android 13
+```
+
+4. Ejecutar la app
+
+```bash
 flutter run
+```
+
+O especificando el dispositivo:
+
+```bash
+flutter run -d <device_id>
 ```
 
 ## Tests
